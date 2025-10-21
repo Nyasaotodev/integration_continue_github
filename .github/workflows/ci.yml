@@ -70,9 +70,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: integration-test
     if: "github.event_name == 'pull_request' 
-      && !startsWith(github.event.pull_request.title, 'chore: release')
-  steps:
-    - run: echo "Hello E2E!"
+      && !startsWith(github.event.pull_request.title, 'chore: release')"
+    steps:
+      - run: echo "Hello E2E!"
 
   release:
     name: Release (Manual)
