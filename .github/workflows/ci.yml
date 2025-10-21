@@ -69,9 +69,10 @@ jobs:
     name: E2E Tests
     runs-on: ubuntu-latest
     needs: integration-test
-    if: "!startsWith(github.event.head_commit.message, 'chore: release')"
-    steps:
-      - run: echo "Hello E2E!"
+    if: "github.event_name == 'pull_request' 
+      && !startsWith(github.event.pull_request.title, 'chore: release')
+  steps:
+    - run: echo "Hello E2E!"
 
   release:
     name: Release (Manual)
